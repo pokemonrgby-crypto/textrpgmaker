@@ -1,134 +1,218 @@
-Task: Create a Web-Based RPG Maker and Player Tool for Non-Coders, Pokemon-Inspired with Monster Girls (Monmus), Deployable on GitHub, with Korean as Default Language
+# 텍스트 RPG 메이커 - Text RPG Maker
 
-Objective:
-Develop a modern web application for a text-based RPG maker that allows non-coders to build Pokemon-like games featuring "Monmus" (monster girls). Replace capture with "contracts." The maker outputs/imports a single JSON file. Separately, integrate a player tool that loads and runs the JSON for gameplay. Focus on high autonomy, clean UI, strong plugin extensibility, and robust logic simulation for implementation. Default language is Korean (UI texts, code comments in Korean). Support other languages via multilingual fields. Design for easy GitHub deployment (e.g., GitHub Pages for static, Vercel/Netlify for dynamic).
+[![Deploy to GitHub Pages](https://github.com/pokemonrgby-crypto/textrpgmaker/actions/workflows/deploy.yml/badge.svg)](https://github.com/pokemonrgby-crypto/textrpgmaker/actions/workflows/deploy.yml)
 
-Key Requirements:
-1. **Modern Web Design and UI (Korean Default)**:
-   - Full web app: React frontend, FastAPI backend (Python for simplicity).
-   - UI: Minimalist, responsive with Tailwind CSS. Step-by-step Korean forms, drag-and-drop node editors (React Flow). All labels/buttons default to Korean; user-switchable to English/Japanese/others.
-   - Deployment: Static on GitHub Pages; dynamic on Vercel. Include GitHub Actions for auto-deploy.
-   - User Flow: No login required initially; inputs via forms, preview in-browser, import/export JSON.
+> 포켓몬 스타일의 몬무(Monster Girls) 기반 텍스트 RPG를 쉽게 만들고 플레이할 수 있는 웹 애플리케이션
 
-2. **Core Mechanics (Pokemon-Inspired, Restricted but Autonomous)**:
-   - Base on Pokemon: Party of Monmus, turn-based battles, exploration, items.
-   - Contract mechanics: After battle, option to contract Monmus.
-   - All assets get unique IDs (auto-increment from 0 or 1).
-   - High autonomy: Free-form inputs; minimal validation but with Korean error messages.
+## 📖 개요 | Overview
 
-3. **Customizable Elements (User-Defined via Web Forms)**:
-   - **Attributes and Type Chart**: Korean grid editor for attributes and matchups.
-   - **Effects**: Editors for effects (triggers, modifiers) in skills/status/items.
-   - **Skills/Abilities**: Fields for attribute, power, accuracy, effects, timing.
-   - **Items**: Usage context, category, effects, name/description (multilingual).
-   - **Monmus**: Forms for Pokedex entry, stats, height/weight, exp yield (multilingual).
-   - **Map**: Node-based graph editor; field areas with encounters/drops.
-   - **Events**: Dialogues, battles; branching nodes.
-   - **Multilingual Support**: Fields for Korean (default), English, Japanese, and expandable to others (e.g., add Chinese via plugins).
+**한국어**: 코딩 지식 없이도 포켓몬 스타일의 몬무 기반 텍스트 RPG를 만들 수 있는 현대적인 웹 애플리케이션입니다. 직관적인 웹 폼을 통해 게임을 제작하고, JSON 파일 하나로 저장 및 공유할 수 있습니다.
 
-4. **JSON Import/Export**:
-   - Export: Compile inputs to single JSON (download button).
-   - Import: Upload JSON file to load/edit existing games (e.g., from others).
-   - JSON Schema: Validated with ID references for efficiency. Support YAML import as alternative.
-   - Sharing: Generate shareable links for JSON (e.g., via blob URL or backend storage).
+**English**: A modern web application that allows you to create Pokemon-style Monmus-based text RPGs without coding knowledge. Create games through intuitive web forms and save/share them as a single JSON file.
 
-5. **Player Tool (Integrated Web Page)**:
-   - Load JSON via upload/import, run game in-browser (text simulation with JS/WebSockets).
-   - Handles party (up to 6), battles, exploration, events. UI in Korean default.
+## ✨ 주요 기능 | Key Features
 
-6. **Gemini API Assist Feature**:
-   - Optional: Form for user API key to enable AI assists (e.g., generate Korean descriptions).
-   - Implementation: Backend uses google.generativeai.
-   - Explicit Instructions: 
-     - API Call: genai.configure(api_key=user_key); model = genai.GenerativeModel('gemini-2.5' or 'gemini-2.0').
-     - Model Selection: Only 2.5 and 2.0; state 1.5 discontinued.
-     - Usage: Buttons for prompts like "Monmus 설명 생성" in Korean.
+- 🎮 **직관적인 웹 인터페이스** - 코딩 없이 게임 제작
+- 🌏 **다국어 지원** - 한국어(기본), 영어, 일본어
+- 🐾 **몬무 시스템** - 포켓몬처럼 수집하고 계약하는 몬무 메커니즘
+- 📦 **JSON 임포트/익스포트** - 단일 파일로 게임 저장 및 공유
+- 🤖 **AI 도우미** - Gemini API를 통한 콘텐츠 생성
+- 🔌 **플러그인 시스템** - 기능 확장 가능
+- 🎨 **다크 모드** - 다크/라이트 테마 지원
+- 🚀 **쉬운 배포** - GitHub Pages, Vercel, Netlify 등 지원
 
-7. **Plugin Support with High Extensibility**:
-   - Modular: JS frontend plugins (ES modules); Python backend plugins (importlib).
-   - Extensibility: Plugins add features (e.g., new editors). Manifest.json for hooks.
-   - Loader: Scan /plugins dir, register dynamically. Korean comments in plugin examples.
-   - Examples: Plugin for extra languages, custom Monmus generator.
+## 🏗️ 기술 스택 | Tech Stack
 
-8. **Additional Features (40+ Ideas for Enhanced Functionality)**:
-   - 각 기능 구현 시, 사용자 시나리오(예: 정상 입력, 빈 값, 에러 케이스)를 텍스트적으로 시뮬레이션하여 모든 가능한 가짓수를 고려 후, 예외가 없도록 구현. 코드에 한국어 주석으로 시뮬레이션 로직 설명.
-   - 1. Leveling System: EXP gain, level ups, stat growth curves (e.g., formulas editable).
-   - 2. Evolution System: Conditions for Monmus evolution (level, item, etc.).
-   - 3. Storyline Builder: Branching narrative editor with Korean dialogues.
-   - 4. NPC Characters: Define NPCs with behaviors, quests.
-   - 5. Quest System: Main/side quests with rewards, trackers.
-   - 6. Inventory Management: Limits, sorting, categories.
-   - 7. Shop System: Buy/sell items with currency.
-   - 8. Random Events: Probability-based triggers (e.g., encounters).
-   - 9. Sound Effects: Web audio integration for effects (upload MP3).
-   - 10. Theme/Skin Customization: UI themes for maker/player.
-   - 11. Multiplayer Elements: Simple online battles (WebSockets).
-   - 12. Save/Load Game State: In-player persistent saves (localStorage).
-   - 13. Tutorial Mode: Guided tours in Korean.
-   - 14. Debug Tools: Console for testing battles/events.
-   - 15. Sharing Features: Export links, gallery for user games.
-   - 16. Template Library: Pre-built Monmus/maps for starters.
-   - 17. AI-Generated Content: Beyond Gemini, auto-balance suggestions.
-   - 18. Battle Animations: Text/emoji sequences or simple CSS.
-   - 19. Weather System: Affects attributes in battles.
-   - 20. Terrain Effects: Map-based modifiers.
-   - 21. Team Building Optimizer: Suggest optimal parties.
-   - 22. Balance Checker: Simulate stats for fairness.
-   - 23. Custom Scripting: Simple JS-like language for events.
-   - 24. Mod Support: Via plugins for community mods.
-   - 25. Game Analytics: Track playtime, win rates.
-   - 26. Version Control: JSON diffs/versions.
-   - 27. Collaboration Editing: Real-time multi-user (Firebase-like).
-   - 28. Asset Import: Images for Monmus portraits.
-   - 29. Mobile Responsiveness: PWA for offline/mobile.
-   - 30. Accessibility Features: ARIA, screen reader support.
-   - 31. Localization Tools: Auto-translate via Gemini.
-   - 32. Performance Optimization: Lazy loading for large maps.
-   - 33. Backup and Restore: Auto-backups of JSON.
-   - 34. Community Gallery: Upload/share games publicly.
-   - 35. In-App Tutorials/Videos: Embedded Korean guides.
-   - 36. Custom Fonts: Upload fonts for UI.
-   - 37. Dark/Light Mode: Toggleable themes.
-   - 38. Notification System: In-app alerts (e.g., save complete).
-   - 39. Achievement System: In-game unlocks.
-   - 40. Gym Battles: Structured challenges.
-   - 41. Breeding System: Combine Monmus for offspring (stats inheritance).
-   - 42. Mega Forms: Temporary power-ups.
-   - 43. Hidden Abilities: Rare variants.
-   - 44. Move Tutors: Learn new skills via NPCs.
-   - 45. Berry Farming: Grow items with time-based mechanics.
-   - 46. Pokedex Rewards: Completion bonuses.
-   - 47. Secret Bases: Customizable player hubs.
-   - 48. Mini-Games: Contests, puzzles.
-   - 49. Regional Variants: Location-based Monmus changes.
-   - 50. User Authentication: Optional login for saving to cloud (e.g., GitHub auth).  // 빠뜨린 기능 추가: 보안 강화.
-   - 51. Error Logging: Track bugs with Korean reports.
-   - 52. Undo/Redo in Editor: For form changes.
-   - 53. Preview Mode: Test partial game without full export.
-   - 54. Export to Other Formats: YAML/CSV for compatibility.
-   - 55. Integration with Tools: Export to RPG Maker formats if plugin added.
+### Backend
+- **FastAPI** - 고성능 Python 웹 프레임워크
+- **Pydantic** - 데이터 검증
+- **Google Generative AI** - AI 콘텐츠 생성
 
-9. **Technical Implementation**:
-   - Stack: Python FastAPI backend, React frontend; libraries as before.
-   - Structure: Backend/app.py (한국어 주석), Frontend/src/App.js.
-   - ID Assignment: Auto with counters.
-   - Logic Simulation: For each feature, code must include comments simulating user flows (e.g., // 시뮬레이션: 사용자 빈 입력 시 에러抛出, 정상 케이스 처리).
-   - Exception Handling: Zero exceptions goal; validate all inputs.
-   - Deployment: Dockerfile, .github/workflows.
+### Frontend
+- **React 18** - UI 라이브러리
+- **Vite** - 빠른 빌드 도구
+- **Tailwind CSS** - 유틸리티 CSS 프레임워크
+- **Zustand** - 상태 관리
+- **Axios** - HTTP 클라이언트
 
-Steps to Implement:
-1. Set up monorepo with Korean comments.
-2. Build backend APIs, including import/export.
-3. Frontend forms with additional features.
-4. Integrate simulations in code.
-5. Test all 40+ features with scenarios.
-6. Deploy sample.
+## 🚀 빠른 시작 | Quick Start
 
-Edge Cases:
-- Handle large imports, multilingual mismatches.
-- Simulate all: e.g., battle with 0 HP.
+### 로컬 개발 환경 | Local Development
 
-Deliverables:
-- Full code with Korean defaults.
-- Sample JSON (Korean Monmus game).
-- Instructions in Korean/English.
+#### 1. 레포지토리 클론
+```bash
+git clone https://github.com/pokemonrgby-crypto/textrpgmaker.git
+cd textrpgmaker
+```
+
+#### 2. 백엔드 실행 | Run Backend
+```bash
+cd backend
+pip install -r requirements.txt
+python app.py
+```
+서버는 `http://localhost:8000`에서 실행됩니다.
+
+#### 3. 프론트엔드 실행 | Run Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
+프론트엔드는 `http://localhost:3000`에서 실행됩니다.
+
+### Docker 사용 | Using Docker
+```bash
+docker build -t textrpg-maker .
+docker run -p 8000:8000 textrpg-maker
+```
+
+## 📚 사용 방법 | Usage
+
+자세한 사용 방법은 다음 문서를 참고하세요:
+- [한국어 사용 설명서](INSTRUCTIONS_KO.md)
+- [English User Guide](INSTRUCTIONS_EN.md)
+
+### 기본 워크플로우 | Basic Workflow
+
+1. **게임 정보 설정** - 타이틀과 설명 입력
+2. **속성 타입 정의** - 불, 물, 풀 등의 속성과 상성 설정
+3. **스킬 생성** - 몬무가 사용할 기술 제작
+4. **아이템 추가** - 포션, 계약구 등 아이템 추가
+5. **몬무 제작** - 스탯, 스킬, 진화 조건 설정
+6. **맵 & 이벤트** - 게임 월드와 스토리 구성
+7. **익스포트** - JSON 파일로 저장
+8. **플레이** - 플레이어에서 게임 실행
+
+## 🎮 샘플 게임 | Sample Game
+
+`sample_game.json` 파일에 기본 포켓몬 스타일 게임 예제가 포함되어 있습니다:
+- 3가지 속성 타입 (불, 물, 풀)
+- 3개의 스킬
+- 2개의 아이템
+- 3마리의 스타터 몬무
+
+## 🔌 플러그인 개발 | Plugin Development
+
+플러그인을 통해 기능을 확장할 수 있습니다:
+
+```python
+# plugins/my_plugin/plugin.py
+def on_monmus_create(monmus_data):
+    """몬무 생성 시 호출"""
+    return monmus_data
+
+def on_skill_use(skill_data, user, target):
+    """스킬 사용 시 호출"""
+    return skill_data
+```
+
+자세한 내용은 `plugins/examples/` 폴더를 참고하세요.
+
+## 🤖 AI 도우미 | AI Assistant
+
+Gemini API를 사용하여 몬무 설명, 스토리 등을 자동 생성할 수 있습니다:
+
+1. [Google AI Studio](https://makersuite.google.com/app/apikey)에서 API 키 발급
+2. 메이커에서 "AI 도우미" 버튼 클릭
+3. API 키 입력 후 프롬프트 작성
+4. "생성" 버튼으로 콘텐츠 생성
+
+**지원 모델**: gemini-2.0, gemini-2.5 (gemini-1.5는 중단됨)
+
+## 📦 배포 | Deployment
+
+### GitHub Pages (자동)
+- `main` 브랜치에 푸시하면 GitHub Actions가 자동으로 배포합니다
+- Settings > Pages에서 GitHub Pages 활성화 필요
+
+### Vercel
+1. Vercel에 프로젝트 연결
+2. Build settings:
+   - Framework: Vite
+   - Build Command: `cd frontend && npm run build`
+   - Output Directory: `frontend/dist`
+
+### Netlify
+1. Netlify에 프로젝트 연결
+2. Build settings:
+   - Build Command: `cd frontend && npm run build`
+   - Publish Directory: `frontend/dist`
+
+## 🗂️ 프로젝트 구조 | Project Structure
+
+```
+textrpgmaker/
+├── backend/              # FastAPI 백엔드
+│   ├── app.py           # 메인 API 서버
+│   └── requirements.txt # Python 의존성
+├── frontend/            # React 프론트엔드
+│   ├── src/
+│   │   ├── components/  # UI 컴포넌트
+│   │   ├── pages/       # 페이지 컴포넌트
+│   │   ├── store/       # Zustand 상태 관리
+│   │   └── utils/       # 유틸리티 (번역 등)
+│   ├── package.json
+│   └── vite.config.js
+├── plugins/             # 플러그인 디렉토리
+│   └── examples/        # 예제 플러그인
+├── .github/
+│   └── workflows/       # GitHub Actions
+├── sample_game.json     # 샘플 게임 데이터
+├── Dockerfile           # Docker 설정
+└── README.md
+```
+
+## 🎯 구현된 기능 | Implemented Features
+
+### Core Features
+- ✅ 게임 정보 편집기
+- ✅ 속성 타입 시스템 (타입 상성 포함)
+- ✅ 스킬 편집기
+- ✅ 아이템 편집기
+- ✅ 몬무 편집기 (스탯, 속성, 진화)
+- ✅ JSON 임포트/익스포트
+- ✅ 다국어 지원 (한국어, 영어, 일본어)
+- ✅ 다크 모드
+- ✅ Gemini API 통합
+- ✅ 플러그인 시스템
+- ✅ 기본 플레이어
+
+### Planned Features
+- 🔄 맵 편집기 (노드 기반)
+- 🔄 이벤트 편집기 (대화, 전투, 선택지)
+- 🔄 NPC 시스템
+- 🔄 퀘스트 시스템
+- 🔄 전투 시스템 (플레이어)
+- 🔄 계약 메커니즘
+- 🔄 레벨링 & 진화
+- 🔄 인벤토리 관리
+- 🔄 저장/불러오기
+
+## 🤝 기여하기 | Contributing
+
+기여를 환영합니다! 다음 방법으로 참여할 수 있습니다:
+
+1. 이슈 리포트
+2. 기능 제안
+3. 풀 리퀘스트
+4. 문서 개선
+5. 플러그인 개발
+
+## 📄 라이선스 | License
+
+MIT License - 자유롭게 사용, 수정, 배포할 수 있습니다.
+
+## 💬 지원 | Support
+
+- 📧 Issues: [GitHub Issues](https://github.com/pokemonrgby-crypto/textrpgmaker/issues)
+- 📖 문서: [INSTRUCTIONS_KO.md](INSTRUCTIONS_KO.md) | [INSTRUCTIONS_EN.md](INSTRUCTIONS_EN.md)
+
+## 🙏 감사의 말 | Acknowledgments
+
+- Pokemon 시리즈에서 영감을 받았습니다
+- React, FastAPI, Tailwind CSS 등 오픈소스 커뮤니티에 감사드립니다
+
+---
+
+**Made with ❤️ by 텍스트 RPG 메이커 팀**
