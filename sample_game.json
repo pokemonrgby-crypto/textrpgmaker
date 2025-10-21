@@ -1,0 +1,262 @@
+{
+  "version": "1.0.0",
+  "game_title": {
+    "ko": "몬무 어드벤처",
+    "en": "Monmus Adventure",
+    "ja": "モンムス アドベンチャー"
+  },
+  "game_description": {
+    "ko": "포켓몬 스타일의 몬무 수집 RPG. 다양한 몬무를 계약하고 파티를 구성하여 모험을 떠나세요!",
+    "en": "A Pokemon-style Monmus collection RPG. Contract various Monmus and build your party for an adventure!",
+    "ja": "ポケモンスタイルのモンムス収集RPG。様々なモンムスと契約してパーティーを組んで冒険に出かけよう！"
+  },
+  "author": "텍스트 RPG 메이커 팀",
+  "attributes": [
+    {
+      "id": 1,
+      "name": {
+        "ko": "불",
+        "en": "Fire",
+        "ja": "ほのお"
+      },
+      "matchups": {
+        "2": 2.0,
+        "3": 0.5
+      }
+    },
+    {
+      "id": 2,
+      "name": {
+        "ko": "풀",
+        "en": "Grass",
+        "ja": "くさ"
+      },
+      "matchups": {
+        "3": 2.0,
+        "1": 0.5
+      }
+    },
+    {
+      "id": 3,
+      "name": {
+        "ko": "물",
+        "en": "Water",
+        "ja": "みず"
+      },
+      "matchups": {
+        "1": 2.0,
+        "2": 0.5
+      }
+    }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "name": {
+        "ko": "불꽃",
+        "en": "Ember",
+        "ja": "ひのこ"
+      },
+      "description": {
+        "ko": "작은 불꽃을 발사하여 공격한다.",
+        "en": "Attack with small flames.",
+        "ja": "小さな炎を発射して攻撃する。"
+      },
+      "attribute_type_id": 1,
+      "power": 40,
+      "accuracy": 100,
+      "pp": 25,
+      "effects": []
+    },
+    {
+      "id": 2,
+      "name": {
+        "ko": "덩굴채찍",
+        "en": "Vine Whip",
+        "ja": "つるのムチ"
+      },
+      "description": {
+        "ko": "덩굴로 상대를 때린다.",
+        "en": "Strike with vines.",
+        "ja": "つるで相手を叩く。"
+      },
+      "attribute_type_id": 2,
+      "power": 45,
+      "accuracy": 100,
+      "pp": 25,
+      "effects": []
+    },
+    {
+      "id": 3,
+      "name": {
+        "ko": "물대포",
+        "en": "Water Gun",
+        "ja": "みずでっぽう"
+      },
+      "description": {
+        "ko": "물을 발사하여 공격한다.",
+        "en": "Spray water to attack.",
+        "ja": "水を発射して攻撃する。"
+      },
+      "attribute_type_id": 3,
+      "power": 40,
+      "accuracy": 100,
+      "pp": 25,
+      "effects": []
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "name": {
+        "ko": "상처약",
+        "en": "Potion",
+        "ja": "きずぐすり"
+      },
+      "description": {
+        "ko": "HP를 20 회복한다.",
+        "en": "Restores 20 HP.",
+        "ja": "HPを20回復する。"
+      },
+      "category": "potion",
+      "usage_context": "both",
+      "effects": [],
+      "price": 200
+    },
+    {
+      "id": 2,
+      "name": {
+        "ko": "몬무볼",
+        "en": "Monmu Ball",
+        "ja": "モンムボール"
+      },
+      "description": {
+        "ko": "야생 몬무와 계약할 때 사용한다.",
+        "en": "Used to contract wild Monmus.",
+        "ja": "野生モンムスと契約するときに使う。"
+      },
+      "category": "ball",
+      "usage_context": "battle",
+      "effects": [],
+      "price": 100
+    }
+  ],
+  "monmus_list": [
+    {
+      "id": 1,
+      "name": {
+        "ko": "파이리",
+        "en": "Charmander",
+        "ja": "ヒトカゲ"
+      },
+      "description": {
+        "ko": "꼬리의 불꽃이 타오르는 불 속성 몬무. 기운이 넘치고 활발하다.",
+        "en": "A fire-type Monmus with a flame burning on its tail. Energetic and lively.",
+        "ja": "しっぽの炎が燃えているほのおタイプのモンムス。元気いっぱいで活発。"
+      },
+      "pokedex_number": 1,
+      "attribute_types": [1],
+      "base_stats": {
+        "hp": 39,
+        "attack": 52,
+        "defense": 43,
+        "sp_attack": 60,
+        "sp_defense": 50,
+        "speed": 65
+      },
+      "height": 0.6,
+      "weight": 8.5,
+      "exp_yield": 62,
+      "catch_rate": 45,
+      "learnable_skills": [
+        {
+          "level": 1,
+          "skill_id": 1
+        }
+      ],
+      "evolution_conditions": [],
+      "abilities": ["맹화"],
+      "image_url": null
+    },
+    {
+      "id": 2,
+      "name": {
+        "ko": "이상해씨",
+        "en": "Bulbasaur",
+        "ja": "フシギダネ"
+      },
+      "description": {
+        "ko": "등에 씨앗을 짊어진 풀 속성 몬무. 햇빛을 받아 성장한다.",
+        "en": "A grass-type Monmus with a seed on its back. Grows by absorbing sunlight.",
+        "ja": "背中に種を背負ったくさタイプのモンムス。日光を浴びて成長する。"
+      },
+      "pokedex_number": 2,
+      "attribute_types": [2],
+      "base_stats": {
+        "hp": 45,
+        "attack": 49,
+        "defense": 49,
+        "sp_attack": 65,
+        "sp_defense": 65,
+        "speed": 45
+      },
+      "height": 0.7,
+      "weight": 6.9,
+      "exp_yield": 64,
+      "catch_rate": 45,
+      "learnable_skills": [
+        {
+          "level": 1,
+          "skill_id": 2
+        }
+      ],
+      "evolution_conditions": [],
+      "abilities": ["무성"],
+      "image_url": null
+    },
+    {
+      "id": 3,
+      "name": {
+        "ko": "꼬부기",
+        "en": "Squirtle",
+        "ja": "ゼニガメ"
+      },
+      "description": {
+        "ko": "등껍질이 단단한 물 속성 몬무. 위험하면 껍질 속으로 숨는다.",
+        "en": "A water-type Monmus with a hard shell. Hides in its shell when in danger.",
+        "ja": "甲羅が硬いみずタイプのモンムス。危険なときは殻の中に隠れる。"
+      },
+      "pokedex_number": 3,
+      "attribute_types": [3],
+      "base_stats": {
+        "hp": 44,
+        "attack": 48,
+        "defense": 65,
+        "sp_attack": 50,
+        "sp_defense": 64,
+        "speed": 43
+      },
+      "height": 0.5,
+      "weight": 9.0,
+      "exp_yield": 63,
+      "catch_rate": 45,
+      "learnable_skills": [
+        {
+          "level": 1,
+          "skill_id": 3
+        }
+      ],
+      "evolution_conditions": [],
+      "abilities": ["급류"],
+      "image_url": null
+    }
+  ],
+  "map_nodes": [],
+  "events": [],
+  "npcs": [],
+  "quests": [],
+  "settings": {
+    "max_party_size": 6,
+    "starting_money": 3000
+  }
+}

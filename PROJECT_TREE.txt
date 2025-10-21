@@ -1,0 +1,41 @@
+.
+|-- ARCHITECTURE.md
+|-- CONTRIBUTING.md
+|-- Dockerfile
+|-- FEATURES.md
+|-- INSTRUCTIONS_EN.md
+|-- INSTRUCTIONS_KO.md
+|-- LICENSE
+|-- PROJECT_SUMMARY.md
+|-- PROJECT_TREE.txt
+|-- README.md
+|-- README_ORIGINAL.md
+|-- SETUP.md
+|-- backend
+|   |-- app.py
+|   `-- requirements.txt
+|-- frontend
+|   |-- index.html
+|   |-- package.json
+|   |-- postcss.config.js
+|   |-- public
+|   |-- src
+|   |   |-- App.jsx
+|   |   |-- components
+|   |   |-- index.css
+|   |   |-- main.jsx
+|   |   |-- pages
+|   |   |-- store
+|   |   `-- utils
+|   |-- tailwind.config.js
+|   `-- vite.config.js
+|-- plugins
+|   `-- examples
+|       |-- manifest.json
+|       `-- plugin.py
+|-- quickstart.sh
+|-- run_servers.sh
+|-- sample_game.json
+`-- validate.sh
+
+11 directories, 28 files

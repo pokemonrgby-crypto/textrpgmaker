@@ -1,0 +1,16 @@
+{
+  "name": "example_plugin",
+  "version": "1.0.0",
+  "description": {
+    "ko": "예제 플러그인",
+    "en": "Example Plugin",
+    "ja": "例プラグイン"
+  },
+  "author": "텍스트 RPG 메이커 팀",
+  "hooks": [
+    "on_monmus_create",
+    "on_skill_use"
+  ],
+  "main": "plugin.py",
+  "dependencies": []
+}
